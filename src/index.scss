@@ -1064,6 +1064,15 @@ body {
   }
   @media (max-width: 767px) {
     flex: 0 0 280px;
+    &:first-child {
+      transition: all 1.5s ease 0s;
+    }
+    &:nth-child(2) {
+      transition: all 1.5s ease 0s;
+    }
+    &:last-child {
+      transition: all 1.5s ease 0s;
+    }
   }
   &__body {
     padding: 0 16px 0 79px;

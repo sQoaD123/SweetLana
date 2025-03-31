@@ -4,18 +4,25 @@ import "./js/swipers";
 
 let iconMenu = document.querySelector(".icon-menu__body");
 iconMenu.addEventListener("click", function (e) {
-  // let menuBg = document.querySelector(".header__wrapper");
   let menu = document.querySelector(".icon-menu__menu");
-  // let phone = document.querySelector(".info-header__item_phone");
-  // let button = document.querySelector(".info-header__item_button");
   let body = document.querySelector("body");
-  // menuBg.classList.toggle("_burger-active");
   menu.classList.toggle("_active");
-  // phone.classList.toggle("_burger-active");
-  // button.classList.toggle("_burger-active");
   body.classList.toggle("_lock");
   iconMenu.classList.toggle("_active");
   e.preventDefault();
+});
+
+document.addEventListener("click", function (e) {
+  let menu = document.querySelector(".icon-menu__menu");
+  let body = document.querySelector("body");
+  if (
+    e.target.classList.contains("im-nav__item") &&
+    iconMenu.classList.contains("_active")
+  ) {
+    menu.classList.remove("_active");
+    body.classList.remove("_lock");
+    iconMenu.classList.remove("_active");
+  }
 });
 
 const sweetsMenu = document.querySelector(".sweets");
@@ -39,22 +46,6 @@ document.addEventListener("click", function (e) {
     sweetsMenu.classList.remove("_no-hover");
   }
 });
-
-function updateMenuHeight() {
-  const menuList = document.querySelector(".menu__list");
-  const phoneItem = document.querySelector(".info-header__item_phone");
-  if (window.innerWidth < 992) {
-    const menuHeight = menuList.offsetHeight;
-    let offset = 60;
-    phoneItem.style.top = `${menuHeight + offset}px`;
-  } else {
-    menuList.style.height = "100%";
-    phoneItem.style.top = "auto";
-  }
-}
-
-window.addEventListener("load", updateMenuHeight);
-window.addEventListener("resize", updateMenuHeight);
 
 document.addEventListener("DOMContentLoaded", function () {
   const headerElement = document.querySelector(".header");

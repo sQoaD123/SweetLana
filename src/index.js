@@ -65,20 +65,16 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const sections = [
     {
-      section: document.querySelector(".custom"),
-      menuItem: document.querySelector(".menu__item_custom"),
+      section: document.querySelector(".product-card"),
+      menuItem: document.querySelector(".menu__item_product-card"),
     },
     {
       section: document.querySelector(".comments-slider"),
       menuItem: document.querySelector(".menu__item_comments"),
     },
     {
-      section: document.querySelector(".reasons"),
-      menuItem: document.querySelector(".menu__item_reasons"),
-    },
-    {
-      section: document.querySelector(".form"),
-      menuItem: document.querySelector(".menu__item_form"),
+      section: document.querySelector(".steps"),
+      menuItem: document.querySelector(".menu__item_steps"),
     },
   ];
 

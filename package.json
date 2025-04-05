@@ -33,6 +33,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "imask": "^7.6.1",
+    "just-validate": "^4.3.0",
     "swiper": "^11.2.5"
   }
 }

@@ -1,6 +1,91 @@
 import "./index.html";
 import "./index.scss";
 import "./js/swipers";
+import JustValidate from "just-validate";
+import IMask from "imask";
+
+let validation = new JustValidate("form");
+
+const element = document.getElementById("tel");
+const maskOptions = {
+  mask: "+{38} (000) 000 00 00",
+  lazy: true,
+  placeholder: "+38 (___) ___ __ __",
+};
+const mask = IMask(element, maskOptions);
+
+element.addEventListener("focus", () => {
+  mask.updateOptions({ lazy: false });
+});
+
+element.addEventListener("blur", () => {
+  if (!element.value || element.value.includes("_")) {
+    mask.updateOptions({ lazy: true });
+  }
+});
+
+validation
+  .addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Введіть ім'я!",
+    },
+    {
+      rule: "minLength",
+      value: 2,
+      errorMessage: "Мінімум 2 символи!",
+    },
+  ])
+  .addField("#tel", [
+    {
+      rule: "required",
+      errorMessage: "Введіть номер телефону!",
+    },
+    {
+      validator: (value) => {
+        const digits = value.replace(/\D/g, "");
+        return digits.length === 12;
+      },
+      errorMessage: "Виберіть номер телефону повністю!",
+    },
+  ])
+  .addField("#products", [
+    {
+      rule: "required",
+      errorMessage: "Виберіть продукт!",
+    },
+  ])
+  .addField("#message", [
+    {
+      rule: "required",
+      errorMessage: "Введіть ваш коментар!",
+    },
+  ])
+  .onSuccess((event) => {
+    event.preventDefault();
+    sendEmail();
+  });
+
+function sendEmail() {
+  let params = {
+    name: document.getElementById("name").value,
+    tel: document.getElementById("tel").value,
+    product: document.getElementById("products").value,
+    message: document.getElementById("message").value,
+  };
+
+  emailjs.send("service_60unl82", "template_3ju81yi", params).then(function () {
+    let successMessage = document.querySelector(".success-message");
+    successMessage.classList.add("_active");
+    document.getElementById("name").value = "";
+    document.getElementById("tel").value = "";
+    document.getElementById("products").value = "";
+    document.getElementById("message").value = "";
+    setTimeout(() => {
+      successMessage.classList.remove("_active");
+    }, 5000);
+  });
+}
 
 let iconMenu = document.querySelector(".icon-menu__body");
 iconMenu.addEventListener("click", function (e) {

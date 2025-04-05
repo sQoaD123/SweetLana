@@ -1675,9 +1675,32 @@
         </div>
       </section>
       <section class="form">
-        <div class="form__cntainer _container">
+        <div class="form__container _container">
           <div class="form__title">Замовити смаколик</div>
-          <form class="form__form" action="">
+          <form id="form" class="form__form" autocomplete="off">
+            <div class="form__success-message success-message">
+              <div class="success-message__icon">
+                <svg
+                  width="29"
+                  height="21"
+                  viewBox="0 0 29 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M28.5119 0.98815C29.1627 1.63903 29.1627 2.6943 28.5119 3.34518L11.8452 20.0118C11.1944 20.6627 10.1391 20.6627 9.48823 20.0118L1.1549 11.6785C0.504031 11.0277 0.504031 9.97233 1.1549 9.3215C1.80578 8.67067 2.86105 8.67067 3.51193 9.3215L10.6667 16.4763L26.1549 0.98815C26.8057 0.337283 27.8611 0.337283 28.5119 0.98815Z"
+                    fill="#E31F1F"
+                  />
+                </svg>
+              </div>
+              <div class="success-message__title">ЗАМОВЛЕННЯ ПРИЙНЯТО</div>
+              <div class="success-message__text">
+                Я зв’яжуся з вами найближчим часом, щоб обговорити всі деталі та
+                зробити вашу солодку ідею реальністю!
+              </div>
+            </div>
             <div class="form__items">
               <div class="form__item item-form">
                 <div class="item-form__body">
@@ -1688,6 +1711,7 @@
                   <input
                     type="text"
                     class="item-form__input"
+                    id="name"
                     placeholder="Ваше ім’я"
                   />
                 </div>
@@ -1699,8 +1723,9 @@
                     <div class="item-form__decoration">:</div>
                   </div>
                   <input
-                    type="tel"
+                    type="text"
                     class="item-form__input"
+                    id="tel"
                     placeholder="+38 (___) ___ __ __"
                   />
                 </div>
@@ -1730,17 +1755,18 @@
               <div class="form__item item-form">
                 <div class="item-form__body">
                   <div class="item-form__text-block">
-                    <div class="item-form__text">Телефон</div>
+                    <div class="item-form__text">Коментар</div>
                     <div class="item-form__decoration">:</div>
                   </div>
                   <textarea
                     class="item-form__input item-form__input_textarea"
                     placeholder="Ваш коментар"
+                    id="message"
                   ></textarea>
                 </div>
               </div>
             </div>
-            <button type="submit" class="form__button">
+            <button id="submit-btn" class="form__button">
               Замовити смаколик
             </button>
           </form>
@@ -2024,5 +2050,16 @@
         </div>
       </div>
     </footer>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "fJWXLHLXZDm1s5DK3",
+        });
+      })();
+    </script>
   </body>
 </html>

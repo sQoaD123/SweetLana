@@ -1600,6 +1600,13 @@ body {
   background-color: #fef1e6;
   border-radius: 24px;
   overflow: hidden;
+  transform: translate(0, -80px);
+  opacity: 0;
+  transition: all 1.5s ease 0s;
+}
+.item-products.show {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 @media (max-width: 992px) {
   .item-products {
@@ -2267,6 +2274,12 @@ body {
 .comment__job {
   font-size: 1.07vw;
   line-height: 1.5;
+}
+@media (min-width: 1440px) {
+  .comment__job {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
 @media (max-width: 992px) {
   .comment__job {

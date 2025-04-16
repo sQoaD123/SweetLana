@@ -1631,6 +1631,24 @@ body {
     transform: rotate(45deg);
   }
 }
+.item-products:nth-child(2) {
+  transition: all 1.5s ease 0.5s;
+}
+.item-products:nth-child(6) {
+  transition: all 1.5s ease 0.5s;
+}
+.item-products:nth-child(3) {
+  transition: all 1.5s ease 1s;
+}
+.item-products:nth-child(7) {
+  transition: all 1.5s ease 1s;
+}
+.item-products:nth-child(4) {
+  transition: all 1.5s ease 1.5s;
+}
+.item-products:nth-child(8) {
+  transition: all 1.5s ease 1.5s;
+}
 .item-products__img {
   width: 100%;
   aspect-ratio: 1/1;

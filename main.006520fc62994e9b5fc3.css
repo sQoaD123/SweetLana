@@ -3084,7 +3084,6 @@ select:invalid {
   font-size: var(--swiper-navigation-size);
   text-transform: none !important;
   letter-spacing: 0;
-  font-feature-settings: ;
   font-variant: normal;
   font-variant: initial;
   line-height: 1;
